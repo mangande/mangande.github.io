@@ -228,8 +228,9 @@ a:hover{text-decoration:underline}
 .company-header{
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
   padding:4px 0;
+  gap:12px;
 }
 .company-name{
   margin:0;
@@ -356,7 +357,9 @@ a:hover{text-decoration:underline}
   .education-header{flex-direction:column;gap:12px}
   .education-icon{align-self:flex-end}
   .role-header{flex-direction:column;align-items:flex-start;gap:4px}
-  .company-header{flex-direction:column;align-items:flex-start;gap:4px}
+  .company-header{flex-direction:row;align-items:flex-start;gap:8px;flex-wrap:nowrap}
+  .company-info{flex:1;min-width:0}
+  .expand-icon{flex-shrink:0;margin-top:2px}
   .grid{grid-template-columns:1fr;gap:12px}
   .kv{gap:8px}
   .btn{padding:10px 12px;font-size:14px}
