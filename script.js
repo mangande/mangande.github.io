@@ -13,22 +13,41 @@
   }
 })();
 
-// Experience section hover functionality
+// Experience section functionality - works on both desktop and mobile
 (function(){
   const companyGroups = document.querySelectorAll('.company-group');
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   
   companyGroups.forEach(group => {
     let hoverTimeout;
     
-    group.addEventListener('mouseenter', () => {
-      clearTimeout(hoverTimeout);
-      group.classList.add('expanded');
-    });
-    
-    group.addEventListener('mouseleave', () => {
-      hoverTimeout = setTimeout(() => {
-        group.classList.remove('expanded');
-      }, 200); // Small delay to prevent flickering
-    });
+    if (isTouchDevice) {
+      // Mobile/Touch devices: Click to toggle
+      group.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Close all other groups
+        companyGroups.forEach(otherGroup => {
+          if (otherGroup !== group) {
+            otherGroup.classList.remove('expanded');
+          }
+        });
+        
+        // Toggle current group
+        group.classList.toggle('expanded');
+      });
+    } else {
+      // Desktop: Hover functionality
+      group.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        group.classList.add('expanded');
+      });
+      
+      group.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          group.classList.remove('expanded');
+        }, 200);
+      });
+    }
   });
 })();
