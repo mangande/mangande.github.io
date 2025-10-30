@@ -354,8 +354,9 @@ a:hover{text-decoration:underline}
   }
   .theme-toggle .theme-text{display:none}
   .education-grid{grid-template-columns:1fr}
-  .education-header{flex-direction:column;gap:12px}
-  .education-icon{align-self:flex-end}
+  .education-header{flex-direction:row;gap:8px;align-items:flex-start}
+  .university-info{flex:1;min-width:0}
+  .education-icon{flex-shrink:0;align-self:flex-start;margin-top:4px}
   .role-header{flex-direction:column;align-items:flex-start;gap:4px}
   .company-header{flex-direction:row;align-items:flex-start;gap:8px;flex-wrap:nowrap}
   .company-info{flex:1;min-width:0}
